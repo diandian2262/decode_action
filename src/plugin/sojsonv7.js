@@ -880,8 +880,7 @@ module.exports = function (code) {
   console.log('处理代码块加密...')
   const parseControlFlowStorage = require('../visitor/parse-control-flow-storage')
   traverse(ast, parseControlFlowStorage)
-  console.log('清理死代码...')
-  ast = cleanDeadCode(ast)
+
   // 刷新代码
   ast = parse(
     generator(ast, {
