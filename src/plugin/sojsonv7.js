@@ -841,15 +841,7 @@ function purifyCode(ast) {
     replace_path.remove()
   }
   traverse(ast, { SequenceExpression: { exit: removeComma } })
-  // 删除空语句
-  traverse(ast, {
-    EmptyStatement: (path) => {
-      path.remove()
-    },
-  })
-  // 删除未使用的变量
-  const deleteUnusedVar = require('../visitor/delete-unused-var')
-  traverse(ast, deleteUnusedVar)
+ )
 }
 
 module.exports = function (code) {
